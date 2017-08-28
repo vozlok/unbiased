@@ -23,7 +23,7 @@ public class BrowserFactory {
                 Configuration.browser = "chrome";
                 ChromeDriverManager.getInstance().setup();
                 ChromeOptions options = new ChromeOptions();
-                options.addArguments("--start-maximized");
+                options.addArguments("--start-fullscreen");
                 Map<String, Object> prefs = new HashMap<String, Object>();
                 prefs.put("credentials_enable_service", false);
                 options.setExperimentalOption("prefs", prefs);

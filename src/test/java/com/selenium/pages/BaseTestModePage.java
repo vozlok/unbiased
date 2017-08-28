@@ -1,5 +1,6 @@
 package com.selenium.pages;
 
+import com.codeborne.selenide.WebDriverRunner;
 import com.selenium.TestBase;
 import ru.yandex.qatools.allure.annotations.Step;
 
@@ -7,6 +8,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class BaseTestModePage extends TestBase {
     public BaseTestModePage() {

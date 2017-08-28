@@ -20,10 +20,10 @@ public class FindAdviserPage extends TestBase {
     }
 
     @Step("Click Contact us, on the first item in list")
-    public EnquireFormPage clickContactUsOnFirstAdviser() {
+    public EnquiryFormPage clickContactUsOnFirstAdviser() {
         executeJavaScript("window.scrollBy(0,-250)", "");
         $$(byXpath("//div[@class='adviser-card__actions']/button")).first().click();
-        return new EnquireFormPage();
+        return new EnquiryFormPage();
     }
 
     @Step("Set filter by advice")
@@ -76,8 +76,8 @@ public class FindAdviserPage extends TestBase {
     }
 
     @Step("Click Contact us, by adviser name")
-    public EnquireFormPage clickAdviserContactUs(String name) {
+    public EnquiryFormPage clickAdviserContactUs(String name) {
         $(byXpath("//a[text()='"+name+"']/../../../div[@class='adviser-card__actions']/button")).click();
-        return new EnquireFormPage();
+        return new EnquiryFormPage();
     }
 }

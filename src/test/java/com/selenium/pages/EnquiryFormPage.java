@@ -8,12 +8,12 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
-public class EnquireFormPage extends TestBase {
-    public EnquireFormPage() {
+public class EnquiryFormPage extends TestBase {
+    public EnquiryFormPage() {
     }
 
     @Step("Fill user info fields")
-    public EnquireFormPage fillUserInfo(UserInfo user) {
+    public EnquiryFormPage fillUserInfo(UserInfo user) {
         $("#RegularEnquiryForm_firstName").setValue(user.firstName);
         $("#RegularEnquiryForm_lastName").setValue(user.lastName);
         $("#RegularEnquiryForm_email").setValue(user.email);
@@ -23,52 +23,52 @@ public class EnquireFormPage extends TestBase {
     }
 
     @Step("Fill why do you want adviser field")
-    public EnquireFormPage fillWhyDoYouWantAdviser(String text){
+    public EnquiryFormPage fillWhyDoYouWantAdviser(String text){
         $("#RegularEnquiryForm_message").setValue(text);
         return this;
     }
 
     @Step("Set speciality radiobatton")
-    public EnquireFormPage fillSpeciality(String speciality) {
+    public EnquiryFormPage fillSpeciality(String speciality) {
         $("#RegularEnquiryForm_specialityClass").click();
         $(byXpath("//input[@value='string:"+speciality+"']")).click();
         return this;
     }
 
     @Step("Select a specific area of advice")
-    public EnquireFormPage fillSpecificAreaOfAdice(String specificArea) {
+    public EnquiryFormPage fillSpecificAreaOfAdice(String specificArea) {
         $(byXpath("//span[text()='Select a specific area of advice']")).click();
         $(byXpath("//input[@value='string:"+specificArea+"']")).click();
         return this;
     }
 
     @Step("Select asset value")
-    public EnquireFormPage fillAssetValue(String assetValue) {
+    public EnquiryFormPage fillAssetValue(String assetValue) {
         $(byXpath("//label/span/span[text()='Select your asset value']")).click();
         $(byXpath("//input[@value='string:"+assetValue+"']")).click();
         return this;
     }
 
     @Step("Click Send enquiry")
-    public EnquireFormPage clickSendEnquiryError() {
+    public EnquiryFormPage clickSendEnquiryError() {
         $(byXpath("//span[contains(.,'Send enquiry')]/..")).click();
         return this;
     }
 
     @Step("Click Send enquiry")
-    public EnquireFormPage clickSendEnquiry() {
+    public EnquiryFormPage clickSendEnquiry() {
         $(byXpath("//span[contains(.,'Send enquiry')]/..")).click();
         return this;
     }
 
     @Step("Check required capcha")
-    public EnquireFormPage checkRequiredCapcha() {
+    public EnquiryFormPage checkRequiredCapcha() {
         $(byXpath("//p[@field='RegularEnquiryForm[recaptcha]']/ng-transclude/span")).shouldHave(text(" Please solve captcha "));
         return this;
     }
 
     @Step("Check TY Enquiry")
-    public EnquireFormPage checkTYEnquiry() {
+    public EnquiryFormPage checkTYEnquiry() {
         $("p.thank-you__title").shouldHave(text("Thank you!"));
         $("p.thank-you__message").shouldHave(text("Your enquiry was sent successfully.\n" +
                 "You can expect a response within 48 hours."));
