@@ -55,9 +55,23 @@ public class EnquireFormPage extends TestBase {
         return this;
     }
 
+    @Step("Click Send enquiry")
+    public EnquireFormPage clickSendEnquiry() {
+        $(byXpath("//span[contains(.,'Send enquiry')]/..")).click();
+        return this;
+    }
+
     @Step("Check required capcha")
     public EnquireFormPage checkRequiredCapcha() {
         $(byXpath("//p[@field='RegularEnquiryForm[recaptcha]']/ng-transclude/span")).shouldHave(text(" Please solve captcha "));
+        return this;
+    }
+
+    @Step("Check TY Enquiry")
+    public EnquireFormPage checkTYEnquiry() {
+        $("p.thank-you__title").shouldHave(text("Thank you!"));
+        $("p.thank-you__message").shouldHave(text("Your enquiry was sent successfully.\n" +
+                "You can expect a response within 48 hours."));
         return this;
     }
 }

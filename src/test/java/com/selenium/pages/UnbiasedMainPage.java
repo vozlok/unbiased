@@ -29,7 +29,7 @@ public class UnbiasedMainPage extends TestBase {
         $("input[name=search]").setValue(location);
         $(byXpath("//span[@class='ng-binding' and contains(.,'"+location+"')]")).click();
         $(byXpath("//button[@ladda='searchForm.searching']")).click();
-        $("div[ng-show=\"showProgress()\"]").shouldBe(visible);
+        $(byXpath("//button[contains(.,'Contact us')]")).shouldBe(visible);
         $("div[ng-show=\"showProgress()\"]").shouldNotBe(visible);
         return new FindAdviserPage();
     }
