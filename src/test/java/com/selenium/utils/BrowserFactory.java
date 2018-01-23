@@ -3,6 +3,9 @@ package com.selenium.utils;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.FirefoxDriverManager;
+import io.github.bonigarcia.wdm.OperaDriverManager;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -21,13 +24,13 @@ public class BrowserFactory {
         switch (browser) {
             case "chrome":
                 Configuration.browser = "chrome";
-                ChromeDriverManager.getInstance().setup();
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("--start-fullscreen");
-                Map<String, Object> prefs = new HashMap<String, Object>();
-                prefs.put("credentials_enable_service", false);
-                options.setExperimentalOption("prefs", prefs);
-                WebDriverRunner.setWebDriver(new ChromeDriver(options));
+                Configuration.startMaximized=true;
+                WebDriverManager.chromedriver().setup();
+                break;
+            case "opera":
+                Configuration.browser = "opera";
+                //WebDriverManager.firefoxdriver().setup();
+                OperaDriverManager.getInstance().setup();
                 break;
             default:
                 throw new IllegalStateException("Browser " + browser + " not supported in tests");

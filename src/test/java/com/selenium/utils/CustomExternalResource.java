@@ -20,7 +20,7 @@ public class CustomExternalResource extends ExternalResource {
         Configuration.baseUrl = "https://" + getProperty("baseUrl");
         Configuration.timeout = TIMEOUT_SELENIDE;
         selectBrowser(getProperty("browser"));
-        clearCookies();
+    //    clearCookies();
         setTestMode();
     }
 
